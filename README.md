@@ -7,3 +7,6 @@ Learning docker basics by building node app
 ## Install Docker Engine
 [Docker Engine](https://docs.docker.com/engine/install/)
 
+## Install Docker Compose
+[Docker Compose](https://docs.docker.com/compose/install/)
+
