@@ -8,13 +8,20 @@ WORKDIR /app
 COPY package.json .
 
 # install required packages
-RUN npm install 
+ARG NODE_ENV
+RUN if [ "$NODE_ENV" = "development" ]; \
+        then npm install; \
+        else npm install --only=production; \
+        fi
 
 # copy all the source files to working directory
 COPY . .
 
+# create env variable
+ENV PORT 3000
+
 # expose the ports that are used by the app
-EXPOSE 3000
+EXPOSE $PORT
 
 # execute command to start the app
 CMD ["node", "index.js"]
